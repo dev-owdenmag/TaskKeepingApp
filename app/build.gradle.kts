@@ -2,10 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias("com.android.application")
+    alias("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.example.taskkeepingapp"
+ =   namespace = "com.example.taskkeepingapp"
     compileSdk = 35
 
     defaultConfig {
@@ -17,9 +19,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-//    viewBinding {
-//        enabled = true
-//    }
 
     buildTypes {
         release {
@@ -40,6 +39,10 @@ android {
     buildFeatures {
         compose = true
     }
+    // Enable View Binding in Kotlin DSL
+    viewBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {
@@ -54,6 +57,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
